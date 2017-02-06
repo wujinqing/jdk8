@@ -2,6 +2,10 @@ group 'com.jin'
 version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
+apply plugin: 'maven'
+apply plugin: 'maven-publish'
+apply plugin: 'war'
+
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -13,13 +17,29 @@ repositories {
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.11'
 }
+// 警告：编码 GBK 的不可映射字符
+//tasks.withType(JavaCompile) {
+//    options.encoding = "UTF-8"
+//}
 
-apply plugin: 'maven'
+// java编译的时候缺省状态下会因为中文字符而失败
+[compileJava,compileTestJava,javadoc]*.options*.encoding = 'UTF-8'
+
+
 
 uploadArchives {
     repositories {
         mavenDeployer {
             repository(url: "file://C:\\Users\\wujq\\.m2\\repository")
         }
+    }
+}
+
+publishing {
+    repositories {
+        maven {
+            url "file://C:\\Users\\wujq\\.m2\\repository"
+        }
+
     }
 }
