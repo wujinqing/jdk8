@@ -1,8 +1,9 @@
 package com.jin.jdk8;
 
+import com.jin.jdk8.datas.Data;
+
 import java.util.function.DoubleToIntFunction;
 import java.util.function.DoubleToLongFunction;
-import java.util.function.Function;
 import java.util.function.IntFunction;
 
 /**

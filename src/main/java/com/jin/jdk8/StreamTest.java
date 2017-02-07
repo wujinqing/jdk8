@@ -1,5 +1,7 @@
 package com.jin.jdk8;
 
+import com.jin.jdk8.datas.Data;
+
 /**
  * @author wu.jinqing
  * @date 2017年01月18日
