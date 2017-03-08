@@ -49,16 +49,25 @@ public class CollectorsTest {
 //
 //        map.forEach((score, student) -> System.out.println(score + "-" +  student.size()));
 
-        Map<Integer, Set<Student>> map = students.collect(Collectors.groupingBy(Student::getScore, Collectors.toSet()));
+//        Map<Integer, Set<Student>> map = students.collect(Collectors.groupingBy(Student::getScore, Collectors.toSet()));
+//
+//        map.forEach((score, student) -> System.out.println(score + "-" +  student.size()));
 
-        map.forEach((score, student) -> System.out.println(score + "-" +  student.size()));
+//        Map<Integer, Long> map = students.collect(Collectors.groupingBy(Student::getScore, Collectors.counting()));
+//
+//        map.forEach((score, count) -> System.out.println(score + "-" +  count));
+
+//        TreeMap<Integer, Set<Student>> map = students.collect(Collectors.groupingBy(Student::getScore, TreeMap::new, Collectors.toSet()));
+//
+//        map.forEach((score, student) -> System.out.println(score + "-" +  student.size()));
 
 
+//        Map<Boolean, List<Student>> map = students.collect(Collectors.partitioningBy(s -> s.getScore() >= 80));
+//
+//        map.forEach((score, student) -> System.out.println(score + "-" +  student.size()));
 
 
-
-
-
+        System.out.println(Objects.equals(null, new Object()));
 
 
 

@@ -5,13 +5,32 @@ package com.jin.jdk8.datas;
  * @date 2017年02月07日
  */
 public class Student {
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Student student = (Student) o;
+
+        return name != null ? name.equals(student.name) : student.name == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        return name != null ? name.hashCode() : 0;
+    }
+
     private String name;
-    private Integer age;
     private Integer score;
 
     public Student(String name, Integer age, Integer score) {
         this.name = name;
-        this.age = age;
+        this.score = score;
+    }
+
+    public Student(String name, Integer score) {
+        this.name = name;
         this.score = score;
     }
 
@@ -23,13 +42,6 @@ public class Student {
         this.name = name;
     }
 
-    public Integer getAge() {
-        return age;
-    }
-
-    public void setAge(Integer age) {
-        this.age = age;
-    }
 
     public Integer getScore() {
         return score;
@@ -37,5 +49,13 @@ public class Student {
 
     public void setScore(Integer score) {
         this.score = score;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "name='" + name + '\'' +
+                ", score=" + score +
+                '}';
     }
 }
