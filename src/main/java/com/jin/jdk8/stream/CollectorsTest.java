@@ -20,7 +20,7 @@ public class CollectorsTest {
         Student student1 = new Student("zhang san", 10, 80);
         Student student2 = new Student("li si", 20, 60);
         Student student3 = new Student("wang wu", 40, 70);
-        Student student4 = new Student("zhao liu", 30, 80);
+        Student student4 = new Student("li si", 30, 80);
 
         Stream<Student> students =Stream.of(student1, student2, student3, student4);
 
@@ -53,23 +53,46 @@ public class CollectorsTest {
 //
 //        map.forEach((score, student) -> System.out.println(score + "-" +  student.size()));
 
+
+//        Map<String, Integer> map = students.collect(Collectors.toMap(s -> s.getName(), s -> s.getScore()));
+//
+//
+//
+//
+//        map.forEach((score, student) -> System.out.println(score + "-" +  student));
+
+
+//        Map<String, Integer> map = students.collect(Collectors.toMap(s -> s.getName(), s -> s.getScore(), (s1, s2) -> s1 + s2));
+//
+//        map.forEach((score, student) -> System.out.println(score + "-" +  student));
+
+
+        System.out.println(students.collect(Collectors.summarizingInt(Student::getScore)).getSum());
+//        Map<Integer, Set<Student>> map = students.collect(Collectors.groupingBy(Student::getScore, Collectors.toSet()));
+//
+//        map.forEach((score, student) -> System.out.println(score + "-" +  student.size()));
 //        Map<Integer, Long> map = students.collect(Collectors.groupingBy(Student::getScore, Collectors.counting()));
 //
 //        map.forEach((score, count) -> System.out.println(score + "-" +  count));
-
+//        Map<String, Integer> map = students.collect(Collectors.toMap(s -> s.getName(), s -> s.getScore()));
+//
+//
+//
+//
+//        map.forEach((score, student) -> System.out.println(score + "-" +  student));
 //        TreeMap<Integer, Set<Student>> map = students.collect(Collectors.groupingBy(Student::getScore, TreeMap::new, Collectors.toSet()));
 //
 //        map.forEach((score, student) -> System.out.println(score + "-" +  student.size()));
-
-
+//        Map<String, Integer> map = students.collect(Collectors.toMap(s -> s.getName(), s -> s.getScore(), (s1, s2) -> s1 + s2));
+//
+//        map.forEach((score, student) -> System.out.println(score + "-" +  student));
 //        Map<Boolean, List<Student>> map = students.collect(Collectors.partitioningBy(s -> s.getScore() >= 80));
 //
 //        map.forEach((score, student) -> System.out.println(score + "-" +  student.size()));
-
-
         System.out.println(Objects.equals(null, new Object()));
 
 
+        System.out.println(students.collect(Collectors.summarizingInt(Student::getScore)).getSum());
 
 
 
